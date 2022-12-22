@@ -1,0 +1,167 @@
+<div id="login-form" class="d-flex vh-100">
+  <div
+    id="login-background"
+    class="d-flex justify-content-center align-items-center"
+    [class]="isMobile ? 'col-12' : 'col-4'"
+  >
+    <img
+      *ngIf="!isMobile"
+      class="logo"
+      src="../../assets/white_logo.svg"
+      alt="white_logo"
+    />
+    <div
+      class="row justify-content-center align-items-center m-0"
+      *ngIf="isMobile"
+      dir="rtl"
+    >
+      <div [class]="isMobile ? 'col-7 bg-white p-5 rounded-1' : 'col-6'">
+        <div class="d-flex justify-content-center align-items-center pb-5">
+          <img
+            *ngIf="isMobile"
+            class="logo"
+            src="../../assets/main_logo.svg"
+            alt="white_logo"
+          />
+        </div>
+
+        <div class="header-text">
+          <p class="portal-text">ورود به پورتال</p>
+          <p class="info-text">
+            لطفا نام کاربری (ایمیل) و رمز عبور خود را وارد کنید
+          </p>
+        </div>
+        <form [formGroup]="loginForm" class="row input-text gy-2">
+          <div>
+            <span>نام کاربری</span>
+            <div class="input-icons">
+              <input
+                name="name"
+                type="text"
+                class="input-field w-100 px-2"
+                formControlName="name"
+              />
+            </div>
+          </div>
+
+          <div>
+            <span>رمز عبور</span>
+            <div class="input-icons">
+              <img
+                (click)="hide = !hide"
+                [src]="
+                  hide ? '../../assets/eye.svg' : '../../assets/eye-off.svg'
+                "
+                alt="hide_logo"
+              />
+              <input
+                name="password"
+                [type]="hide ? 'password' : 'text'"
+                class="input-field d-flex align-items-center w-100 px-2"
+                formControlName="password"
+              />
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between py-3">
+            <div class="d-flex align-items-center">
+              <input class="remember-checkbox" type="checkbox" id="Check1" />
+              <label class="input-text pe-2" for="Check1"
+                >برای دفعه بعدی مرا بخاطر بسپار</label
+              >
+            </div>
+            <span class="input-text forget-password"
+              >رمزتان را فراموش کرده اید؟</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center justify-content-between">
+            <button
+              type="button"
+              class="d-flex btn btn-login align-items-center justify-content-center"
+              [disabled]="loginForm.invalid"
+            >
+              ورود
+            </button>
+
+            <span class="input-text forget-password"
+              >حساب کاربری نساخته اید؟ <a href="#">ثبت نام</a></span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row justify-content-center align-items-center m-0 col-8"
+    *ngIf="!isMobile"
+    dir="rtl"
+  >
+    <div class="col-6">
+      <div class="header-text">
+        <p class="portal-text">ورود به پورتال</p>
+        <p class="info-text">
+          لطفا نام کاربری (ایمیل) و رمز عبور خود را وارد کنید
+        </p>
+      </div>
+      <form [formGroup]="loginForm" class="row input-text gy-2">
+        <div>
+          <span>نام کاربری</span>
+          <div class="input-icons">
+            <input
+              name="name"
+              type="text"
+              class="input-field w-100 px-2"
+              formControlName="name"
+            />
+          </div>
+        </div>
+
+        <div>
+          <span>رمز عبور</span>
+          <div class="input-icons">
+            <img
+              (click)="hide = !hide"
+              [src]="hide ? '../../assets/eye.svg' : '../../assets/eye-off.svg'"
+              alt="hide_logo"
+            />
+            <input
+              name="password"
+              [type]="hide ? 'password' : 'text'"
+              class="input-field d-flex align-items-center w-100 px-2"
+              formControlName="password"
+            />
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between py-3">
+          <div class="d-flex align-items-center">
+            <input class="remember-checkbox" type="checkbox" id="Check1" />
+            <label class="input-text pe-2" for="Check1"
+              >برای دفعه بعدی مرا بخاطر بسپار</label
+            >
+          </div>
+          <span class="input-text forget-password"
+            >رمزتان را فراموش کرده اید؟</span
+          >
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between">
+          <button
+            type="button"
+            class="d-flex btn btn-login align-items-center justify-content-center"
+            [disabled]="loginForm.invalid"
+            routerLinkActive="active"
+            routerLink="/shopping"
+          >
+            ورود
+          </button>
+
+          <span class="input-text forget-password"
+            >حساب کاربری نساخته اید؟ <a href="#">ثبت نام</a></span
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
